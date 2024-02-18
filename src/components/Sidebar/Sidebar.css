@@ -1,14 +1,16 @@
 main {
     width: calc(100% - 150px);
     padding: 20px;
+    margin-left: 200px;
 }
 
 .sidebar{
     background: #65B741;
     color: #fff;
-    height: 300vh;
+    height: 250vh;
     width: 200px;
     transition: all 0.5s;
+    position: fixed;
 }
 
 .top_section{

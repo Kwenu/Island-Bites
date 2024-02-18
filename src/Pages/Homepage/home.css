@@ -58,7 +58,7 @@
 }
 
 .search-text {
-    font-weight: semibold;
+    font-weight: bold;
 }
 
 .search-icon {
@@ -96,5 +96,36 @@
 }
 
 .app-container .banner {
+    margin-bottom: 10px;
     padding: 15px 90px;
+}
+
+.app-container .load-more {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 460px;
+    margin-right: 460px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 10px 117px;  
+    background-color: #65B741;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.app-container .add-recipe {
+    margin-top: 20px;
+    margin-right: 30px;
+    margin-left: 975px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px 66px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #65B741;
+    color: white;
+    font-weight: bold;
 }
