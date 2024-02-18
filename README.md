@@ -1,27 +1,70 @@
-# Island-Bites
-SDGP Implementation
+# Getting Started with Create React App
 
-This is the Implementation part of our Software Development Group Project (CS-07).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Introduction to our problem is:
-The difficulty of locating and recognizing authentic Sri Lankan food varies based on your location in the country and your level of knowledge of the local culinary scene.
+## Available Scripts
 
-Here are some factors to consider:
+In the project directory, you can run:
 
-1. Lack of user-generated authentic recipes:-
-   Sri Lanka has a meager amount of user-generated recipe content. It would be beneficial to have a website that has user-generated authentic recipes which the users also can rate other users’ dishes
+### `npm start`
 
-2. Geographic Location
-   Depending on where you are in Sri Lanka, you may have trouble locating native food. You'll find a variety of options in popular tourist destinations like Colombo, Kandy, or Galle. On the other hand, finding a range of dining options could be more difficult if you're in a more rural or remote place.    
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-3. Language Barrier
-   Since Tamil and Sinhala are the official languages of Sri Lanka, communication may be difficult while attempting to identify regional cuisine if you are not fluent in either language. While this may not always be the case, many eateries and food vendors in tourist regions may offer English-speaking personnel or menus.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-4. Local Markets
-   The best way to experience Sri Lankan cuisine is to visit local markets and street food vendors. You can try traditional Sri Lankan dishes like hoppers, dhal curry, achcharu, kottu roti, and string hoppers in these places. However, finding the best vendors may require some local guidance and recommendations.
+### `npm test`
 
-5. Lack of sources
-   Especially for tourists and Sri Lankans who live abroad, finding and even identifying Sri Lankan cuisine might be a huge problem. It’s mainly because Sri Lankan cuisine is so vast and different from Western cultures. Most Sri Lankan cuisine requires some culinary knowledge due to the use of many kinds of ingredients.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-In conclusion, discovering and recognizing regional Sri Lankan food can be a fun gastronomic journey, although it might take some work, particularly in less visited locations. To help you uncover Sri Lanka's true flavors our web application could do most of the hard work.
+### `npm run build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,0 +1,100 @@
+.food-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.food-card {
+    width: calc(30% - 0px); 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.food-card-image {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.food-card-content {
+    padding: 10px;
+}
+
+.food-card-buttons {
+    position: absolute;
+    top: 300px;
+    right: 25px;
+}
+
+.app-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.food-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px; /* Add margin top to create space between search bar and cards */
+}
+  
+.search-profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+  
+.search-bar {
+    position: relative;
+    padding: 8px 120px 8px 10px; /* Adjust padding to accommodate the icon */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 40px;
+}
+
+.search-text {
+    font-weight: semibold;
+}
+
+.search-icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px;
+    cursor: pointer;
+}
+
+.search-icon-container {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    padding: 10px;
+    transform: translateY(-50%);
+    background-color: #65B741; 
+    border-radius: 0 5px 5px 0; 
+}
+  
+.profile-icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+  
+.profile-image {
+    width: 100%;
+    height: 100%;
+}
+
+.app-container .name {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.app-container .banner {
+    padding: 15px 90px;
+}
