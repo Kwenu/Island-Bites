@@ -19,7 +19,7 @@ const FoodCard = ({ food }) => {
                     </div>
                 </div>
                 <div className="flex justify-between items-center mt-2">
-                    <p className="text-gray-700 text-base mr-2 text-red-600" id='Time'>{food.time}</p>
+                    <p className="text-gray-700 text-base mr-2 text-red-600 font-bold" id='Time'>{food.time}</p>
                     <div className='food-card-buttons'>
                         <button className="mr-2">
                             <img src={Heart} alt="Favorite" className="w-6 h-6" id='Favorite'/>

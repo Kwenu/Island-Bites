@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FoodCard from './FoodCard';
 import MilkRiceImage from '../../images/1.jpg'; 
 import StringHoppers from '../../images/2.jpg';
@@ -16,6 +16,7 @@ import Profile from '../../Pages/Profilepage/profile.js';
 import '../../Pages/Homepage/home.css';
 
 const App = () => {
+  const [displayedFoodItems, setDisplayedFoodItems] = useState(6); // State variable to track the number of displayed food items
   const foodItems = [
     {
       id: 1,
@@ -29,57 +30,62 @@ const App = () => {
       name: 'StringHoppers',
       image: StringHoppers,
       rating: 4.2,
-      time: '20 min'
+      time: '40 min'
     },
     {
       id: 3,
       name: 'Hoppers',
       image: Hoppers, 
       rating: 4.5,
-      time: '30 min'
+      time: '20 min'
     },
     {
       id: 4,
       name: 'Pittu',
       image: Pittu,
       rating: 4.2,
-      time: '20 min'
+      time: '35 min'
     },
     {
       id: 5,
       name: 'Rotti',
       image: Rotti, 
       rating: 4.5,
-      time: '30 min'
+      time: '45 min'
     },
     {
       id: 6,
       name: 'LumpRice',
       image: LumpRice,
       rating: 4.2,
-      time: '20 min'
+      time: '1 hr'
     },
     {
       id: 7,
       name: 'Koththu',
       image: Koththu, 
       rating: 4.5,
-      time: '30 min'
+      time: '45 min'
     },
     {
       id: 8,
       name: 'Kavum',
       image: Kavum,
       rating: 4.2,
-      time: '20 min'
+      time: '1 hr 20 min'
     },{
       id: 9,
       name: 'Kokis',
       image: Kokis, 
       rating: 4.5,
-      time: '30 min'
+      time: '1hr 30 min'
     },
   ];
+
+  const loadMore = () => {
+    // Increase the number of displayed food items by 3 when "Load More" button is clicked
+    setDisplayedFoodItems(displayedFoodItems + 3);
+  };
 
   return (
     <div className="app-container">
@@ -94,7 +100,8 @@ const App = () => {
         <div className="profile-icon-container">
           <button>
             <a href={Profile}>
-            <img src={ProfileImage} alt="Profile" className="profile-image" /></a>  
+              <img src={ProfileImage} alt="Profile" className="profile-image" />
+            </a>  
           </button>   
         </div>
       </div>
@@ -105,15 +112,17 @@ const App = () => {
         Recommended Recipes
       </div>
       <div className="food-card-container">
-        {foodItems.map(food => (
+        {foodItems.slice(0, displayedFoodItems).map(food => (
           <FoodCard key={food.id} food={food} />
         ))}
       </div>
-      <div>
-        <button>Load More</button>
-      </div>
-      <div>
-        <button>Add Recipes</button>
+      {displayedFoodItems < foodItems.length && (
+        <div className='load-more'>
+          <button onClick={loadMore}>Load More</button>
+        </div>
+      )}
+      <div className='add-recipe'>
+        <button>ADD RECIPES </button>
       </div>
     </div>
   );
