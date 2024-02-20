@@ -1,0 +1,113 @@
+.main-footer {
+  background: #e3e3e3;
+  padding-top: 40px;
+  border-top: 3px solid #65B741; /* Add this line for the green border */
+}
+
+.container {
+  width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column; /* Updated to column */
+  align-items: center; /* Center content horizontally */
+}
+
+.footer-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-content {
+  width: 30%; /* Adjust width as needed */
+  text-align: center;
+}
+
+h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.footer-content p {
+  width: 200px;
+  margin: auto;
+  padding: 7px;
+  text-align: justify;
+}
+
+.footer-content ul {
+  text-align: center;
+}
+
+.list {
+  padding: 0;
+}
+
+.list a {
+  width: auto;
+  text-align: center;
+  padding: 7px;
+  position: relative;
+  display: block;
+  color: #333;
+}
+
+.list a::before {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 2px;
+  background: #65B741;
+  transition-duration: 0.5s;
+}
+
+.list a:hover::before {
+  width: 70px;
+}
+
+.social-icons {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.social-icons a {
+  display: block; /* Make the anchor tag a block element */
+  color: #333;
+  padding: 7px;
+}
+
+.social-icons li {
+  text-align: center;
+  padding: 5px;
+}
+
+.social-icons i {
+  color: white;
+  font-size: 25px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #65B741;
+}
+
+.social-icons i:hover {
+  color: #65B741;
+}
+
+.bottom-bar {
+  text-align: center;
+  margin-top: 30px; /* Add margin to create space between content and bottom bar */
+}
+
+.bottom-bar p {
+  margin: 0;
+  color: black; /* Adjust color as needed */
+}
