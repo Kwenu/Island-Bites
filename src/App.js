@@ -1,13 +1,16 @@
 
 import './App.css';
-import Footer from './components/footer.js'
+// import Footer from './components/footer.js'
+import ImageUpload from './pages/UplaodImage/Image.js'
+// import AddRecipe from './pages/AddRecipe/Upload.js';
 
 function App() {
   return (
     <div className="App">
-      <Footer/>
+      <ImageUpload/>
     </div>
   );
 }
 
 export default App;
+
