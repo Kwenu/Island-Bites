@@ -1,7 +1,6 @@
 import './profile.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faGear, faHeart, faPlane, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
-import { faLaptop } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import Profile from '../../images/profilePic.jpg';
 
 function App() {
