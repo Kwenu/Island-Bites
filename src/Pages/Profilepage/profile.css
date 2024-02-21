@@ -1,0 +1,147 @@
+.profile {
+    background-color: rgb(255, 255, 255);
+}
+
+.images {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+.cover {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.profilePic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 130px;
+    border: solid rgb(255, 255, 255) 4px;
+}
+
+.profile-container {
+    margin-top: 10px;
+}
+
+.uInfo {
+    height: 180px;
+    -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+    border-radius: 20px;
+    background-color: themed("bg");
+    color: themed("textColor");
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
+
+a {
+    color: themed("textColorSoft");
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.centerp{
+        font-size: 25px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+}
+
+.center {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+     
+}
+
+.center span {
+    font-size: 30px;
+    font-weight: 500;
+     
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: themed("textColorSoft");
+}
+
+.item span {
+    font-size: 15px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.bar {
+    width: 75%;
+    height: 80px; 
+    border-radius: 15px;
+    background-color: rgb(240, 240, 240);
+    color: themed("textColor");
+    padding: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto; 
+    margin-bottom: 30px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  .bar:hover {
+    background-color: #e0e0e0; 
+  }
+  
+  .bar span {
+    font-size: 20px; 
+    font-weight: 600; 
+    margin-left: 10px; 
+    line-height: 1;
+  }
+  
+  .bar svg {
+    font-size: 25px; /*  icon size  */
+    margin-right: 100px; /* spacing between icon and text */
+}

@@ -1,53 +1,73 @@
-/* .app-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.search-profile-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-  
-.search-bar {
+.profile-container {
     position: relative;
-    padding: 8px 120px 8px 10px; 
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 40px;
+    cursor: pointer;
 }
 
-.search-text {
+.profile-container .profile-image img{
+    margin-top: -280px;
+    width: 150px;
+    height: 150px;
+    margin-left: 600px;
+    border-radius: 50%;
+}
+
+.profile-container .creator-details {
+    margin-left: 650px;
+}
+
+.creator-details .creator {
+    font-size: 22px;
+    margin-left: -12px;
+}
+
+.creator-details .Name {
+    font-size: 18px;
+}
+
+.recipe-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recipe-card {
+    width: calc(95% - 0px); 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding:  10px 60px;
+    position: relative;
+}
+
+.recipe-card .name {
+    padding: 10px 0px;
+}
+
+.recipe-card .recipe,
+.recipe-card .ingredients {
+    padding: 15px 0px;
+    font-size: 20px;
     font-weight: bold;
 }
 
-.search-icon {
-    width: 20px; 
-    height: 20px;
-    cursor: pointer;
+.recipe-card img {
+    height: 300px;
+    width: auto;
+    border-radius: 15px;
 }
 
-.search-icon-container {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    padding: 10px;
-    transform: translateY(-50%);
-    background-color: #65B741; 
-    border-radius: 0 5px 5px 0; 
+.recipe-card-container .recipe-details {
+    margin-top: 80px;
 }
-  
-.profile-icon-container {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
+
+.add-recipe-button {
+    margin-top: 20px;
+    margin-right: 28px;
+    margin-left: 975px;
+    border: 1px solid #ccc;
+    padding: 20px 40px;
+    background-color: #65B741;
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
 }
-  
-.profile-image {
-    width: 100%;
-    height: 100%;
-} */
