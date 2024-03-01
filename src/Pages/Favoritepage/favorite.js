@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MilkRiceImage from '../../images/1.jpg'; 
 import StringHoppers from '../../images/2.jpg';
 import Hoppers from '../../images/3.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import ProfileImage from '../../images/profile.jpg';
-import Profile from '../../Pages/Profilepage/profile.js';
 import FoodCard from '../Favoritepage/FavouriteCard.js';
 import '../Homepage/home.css';
 
@@ -46,9 +46,7 @@ const Favorite = () => {
         </div>
         <div className="profile-icon-container">
           <button>
-            <a href={Profile}>
-              <img src={ProfileImage} alt="Profile" className="profile-image" />
-            </a>  
+            <Link to="/profile"><img src={ProfileImage} alt="Profile" className="profile-image" /></Link>
           </button>   
         </div>
       </div>

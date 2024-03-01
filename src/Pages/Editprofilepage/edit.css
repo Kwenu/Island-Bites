@@ -1,5 +1,5 @@
 #container #login {
-    margin-top: -35px;
+    /* margin-top: -35px; */
     padding: 0px 72px;
     font-size: 35px;
 }
@@ -34,14 +34,16 @@
 
 #email,
 #firstName,
+#secondName,
 #password,
-#contactNum,
+#contactNumber,
+#country,
 #lastName {
     position: relative;
     padding: 10px;
     border: 2px solid #d8d8d8;
-    border-radius: 10px; /* Adjust the border radius as needed */
-    margin-bottom: 20px; /* Add some space between fields */
+    border-radius: 10px; 
+    margin-bottom: 20px; 
 }
 
 /* Style placeholder text */
