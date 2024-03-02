@@ -8,51 +8,49 @@ const Login = () => {
 
     return (
         <div className="w-full h-screen flex" id='container'>
-
-<div className="profile">
-      <div className='images'>
-        <img src= {Profile} alt='' className='profilePic'></img>
-      </div>
-</div>
+            <div className="profile">
+                <div className='images'>
+                    <img src= {Profile} alt='' className='profilePic'></img>
+                </div>
+            </div>
             <div className="w-1/2 h-full flex flex-col justify-start" id='login-details'>
                 {/* <img src={LOGO} className="w-1/2 p-10" id="logo" />  */}
 
                 <div className='w-full flex flex-col mb-10'>
                     <h3 className='text-2x1 font-bold mb-4' id='login'>Edit Profile</h3>
-                    {/* <p className='text-sm mb-2' id='welcome'>Welcome back ! Please enter your details</p> */}
                 </div>
 
                 <div className='w-full flex flex-col' id='detail'>
 
                     <p className='firstName'>First Name</p>
                     <input 
-                        type="email" 
+                        type="text" 
                         placeholder='First Name'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='email'/>
+                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='firstName'/>
                     
-                    <p className='secondName'>Second Name</p>
+                    <p className='secondName'>Last Name</p>
+                    <input 
+                        type="text" 
+                        placeholder='Last Name'
+                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='secondName'/>
+
+                    <p className='email'>E-mail</p>
                     <input 
                         type="email" 
-                        placeholder='Second Name'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='secondName'/>
-                    
+                        placeholder='example@gmail.com'
+                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='email'/>    
+
                     <p className='contactNumber'>Contact Number</p>
                     <input 
-                        type="email" 
+                        type="text" 
                         placeholder='Contact Number'
                         className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='contactNumber'/>
                     
                     <p className='country'>Country</p>
                     <input 
-                        type="email" 
+                        type="text" 
                         placeholder='country'
                         className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='country'/>
-                    
-                    <p className='email'>E-mail</p>
-                    <input 
-                        type="email" 
-                        placeholder='example@gmail.com'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='email'/>
 
                     <div className="relative">
                         <p className='password'>Password</p>

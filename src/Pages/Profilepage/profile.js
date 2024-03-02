@@ -10,14 +10,16 @@ function App() {
 
   return (
     <div className="profile">
+      <div className='name'>
+        Edit Profile
+      </div>
       <div className='images'>
         <img src='https://images.pexels.com/photos/10837800/pexels-photo-10837800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' className='cover'></img>
         <img src= {Profile} alt='' className='profilePic'></img>
       </div>
       <div className='ProfileContainer'>
         <div className='uInfo'>
-          <div className='left'>
-          </div>
+          <div className='left'></div>
           <div className='centerp'>
             <span>Adrian Brewer</span>
             <div className='info'>
@@ -43,14 +45,22 @@ function App() {
         <div className='bar'>
           <div className='center'>
             <FontAwesomeIcon icon={faHeart} />
-            <span>Favourites</span>
+            <div>
+              <span>
+                <Link to="/favorite">Favourites</Link>
+              </span>
+            </div>
           </div>
         </div>
 
         <div className='bar'>
           <div className='center'>
             <FontAwesomeIcon icon={faGear} />
-            <span>Settings</span>
+            <div>
+              <span>
+                <Link to="/favorite">Settings</Link>
+              </span>
+            </div>
           </div>
         </div>
 
@@ -66,9 +76,8 @@ function App() {
                     }}
                   >
                 </button>
-
-      {modalOpen && <Profile setOpenModal={setModalOpen} />}
-    </div>
+              {modalOpen && <Profile setOpenModal={setModalOpen} />}
+            </div>
           </div>
         </div>
       </div>

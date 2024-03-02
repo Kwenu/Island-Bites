@@ -33,7 +33,8 @@
 }
 
 .uInfo {
-    height: 180px;
+    margin-top: -120px;
+    height: 250px;
     -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
     box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
@@ -44,7 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .left {
@@ -64,12 +65,13 @@ a {
 }
 
 .centerp{
-        font-size: 25px;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    margin-top: 120px;
+    font-size: 25px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     
 }
 
@@ -128,20 +130,26 @@ a {
     margin-bottom: 30px;
     cursor: pointer; 
     transition: background-color 0.3s ease; 
-  }
+}
   
-  .bar:hover {
+.bar:hover {
     background-color: #e0e0e0; 
-  }
+}
   
-  .bar span {
+.bar span {
     font-size: 20px; 
     font-weight: 600; 
     margin-left: 10px; 
     line-height: 1;
-  }
+}
   
-  .bar svg {
+.bar svg {
     font-size: 25px; /*  icon size  */
     margin-right: 100px; /* spacing between icon and text */
+}
+
+.profile .name {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px 0px;
 }

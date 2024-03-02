@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import MilkRice from '../../images/1.jpg'; 
 // import StringHoppers from '../../images/2.jpg';
 // import Hoppers from '../../images/3.jpg';
@@ -11,7 +12,6 @@ import MilkRice from '../../images/1.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
-import Profile from '../../Pages/Profilepage/profile.js';
 import '../../Pages/Recipepage/recipe.css';
 
 function recipe() {
@@ -27,10 +27,8 @@ function recipe() {
         </div>
         <div className="profile-icon-container">
           <button>
-            <a href={Profile}>
-              <img src={SearchProfile} alt="Profile" className="profile-image" />
-            </a>  
-          </button>   
+            <Link to="/profile"><img src={SearchProfile} alt="Profile" className="profile-image" /></Link>
+          </button>  
         </div>
       </div>
       <div className="recipe-card-container">
@@ -71,9 +69,9 @@ function recipe() {
             </p>
           </div>
         </div>
-        <div className='add-recipe-button'>
-            <button>ADD RECIPES </button>
-        </div>
+        <div className='add-recipe'>
+        <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
+      </div>
       </div>
     </div>
   )

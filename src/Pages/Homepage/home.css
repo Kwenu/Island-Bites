@@ -30,7 +30,7 @@
 }
 
 .app-container {
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     flex-direction: column;
 }
@@ -109,8 +109,8 @@
 .app-container .load-more {
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-left: 460px;
-    margin-right: 460px;
+    margin-left: 480px;
+    margin-right: 480px;
     border: 2px solid #ccc;
     border-radius: 15px;
     padding: 10px 117px;  
@@ -141,7 +141,7 @@
 .main-footer {
     margin-top: 100px;
     background: #e3e3e3;
-    padding-top: 50px;
+    padding-top: 40px;
     border-top: 3px solid #65B741; /* Add this line for the green border */
 }
   
@@ -153,47 +153,48 @@
     align-items: center; /* Center content horizontally */
 }
   
-  .footer-content-container {
+.footer-content-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
+}
   
-  .footer-content {
+.footer-content {
     width: 30%; /* Adjust width as needed */
     text-align: center;
-  }
+}
   
-  h3 {
+.footer-content h3 {
     font-size: 28px;
     margin-bottom: 15px;
-  }
+}
   
-  .footer-content p {
+.footer-content p {
     width: 200px;
     margin: auto;
     padding: 7px;
-    text-align: justify;
-  }
-  
-  .footer-content ul {
     text-align: center;
-  }
+    justify-content: center;
+}
   
-  .list {
+.footer-content ul {
+    text-align: center;
+}
+  
+.list {
     padding: 0;
-  }
+}
   
-  .list a {
+.list a {
     width: auto;
     text-align: center;
     padding: 7px;
     position: relative;
     display: block;
     color: #333;
-  }
+}
   
-  .list a::before {
+.list a::before {
     content: '';
     position: absolute;
     transform: translate(-50%, -50%);
@@ -203,52 +204,52 @@
     height: 2px;
     background: #65B741;
     transition-duration: 0.5s;
-  }
+}
   
-  .list a:hover::before {
+.list a:hover::before {
     width: 70px;
-  }
-  
-  .social-icons {
+}
+
+.social-icons {
     list-style: none;
     text-align: center;
+    justify-content: center;
     padding: 0;
-  }
-  
-  .social-icons a {
-    display: block; /* Make the anchor tag a block element */
+}
+
+.social-icons a {
     color: #333;
-    padding: 7px;
-  }
+    padding: 3px;
+}
   
-  .social-icons li {
-    text-align: center;
-    padding: 5px;
-  }
+/* .social-icons li {
+  text-align: center;
+  padding: 5px;
+} */
   
-  .social-icons i {
-    color: white;
-    font-size: 25px;
-  }
+/* .social-icons i {
+  color: white;
+  font-size: 25px;
+} */
   
-  a {
+a {
     text-decoration: none;
-  }
+}
   
-  a:hover {
+.footer-content a:hover {
     color: #65B741;
-  }
+}
   
-  .social-icons i:hover {
+.social-icons i:hover {
     color: #65B741;
-  }
+}
   
-  .bottom-bar {
+.bottom-bar {
     text-align: center;
     margin-top: 30px; /* Add margin to create space between content and bottom bar */
-  }
+}
   
-  .bottom-bar p {
+.bottom-bar p {
     margin: 0;
     color: black; /* Adjust color as needed */
-  }
+}

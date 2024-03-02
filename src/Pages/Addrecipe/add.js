@@ -3,24 +3,24 @@ import '../Addrecipe/add.css';
 
 function Add() {
   return (
-    <div className="upload">
+    <div className="add">
       <div>
-        <label htmlFor="description">Description.</label>
+        <label className='Label' htmlFor="description">Description.</label>
         <textarea id="description"></textarea>
       </div>
 
       <div>
-        <label htmlFor="ingredients">Ingredients.</label>
+        <label className='Label' htmlFor="ingredients">Ingredients.</label>
         <textarea id="ingredients"></textarea>
       </div>
 
       <div>
-        <label htmlFor="instructions">Recipe Instructions.</label>
+        <label className='Label' htmlFor="instructions">Recipe Instructions.</label>
         <textarea id="instructions"></textarea>
       </div>
 
       <div>
-        <label htmlFor="time">Time.</label>
+        <label className='Label' htmlFor="time">Time.</label>
         <input type="text" id="time" />
       </div>
 
