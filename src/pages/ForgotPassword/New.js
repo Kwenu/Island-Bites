@@ -1,5 +1,6 @@
 import React from 'react';
 import '../ForgotPassword/New.css';
+import { Link } from 'react-router-dom';
 
 function New() {
   return (
@@ -18,7 +19,9 @@ function New() {
       </div>
 
       <div>
+      <Link to="/Login">
         <button className='NBUTTON' type="submit">Save Password</button>
+      </Link>
       </div>
     </div>
   );

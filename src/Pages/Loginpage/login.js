@@ -4,7 +4,7 @@ import IMAGE from '../../images/img.jpg';
 import LOGO from '../../images/logo.png';
 import GOOGLE_LOGO from '../../images/Google_logo.png';
 import FACEBOOK_ICON from '../../images/Facebook_logo.png';
-import '../../Pages/Loginpage/login.js';
+import '../../pages/Loginpage/login.js';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const Login = () => {
@@ -49,7 +49,9 @@ const Login = () => {
                         <input type="checkbox" className='w-4 h-4 mr-2'/>
                         <p className='text -sm1'>Remember me</p>
                     </div>
-                    <p className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2' id='forgot'>Forgot Password?</p>
+                    <Link to="/forgot">
+                    <button className='text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2' id='forgot'>Forgot Password?</button>
+                    </Link>
                 </div>
 
                 <div className='w-full flex flex-col' id='signin'>

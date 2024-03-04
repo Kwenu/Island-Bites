@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import "../../Pages/Logoutpage/logout.css";
+import "../../pages/Logoutpage/logout.css";
 
 function Logout({ setOpenModal }) {
   return (

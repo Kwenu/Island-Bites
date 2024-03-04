@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Profile from '../../images/profilePic.jpg';
-import '../../Pages/Editprofilepage/edit.css';
+import '../../pages/Editprofilepage/edit.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const Login = () => {
