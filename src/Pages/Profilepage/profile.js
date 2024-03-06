@@ -1,6 +1,6 @@
 import './profile.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBowlFood, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import Profile from '../../images/profilePic.jpg';
 
 function App() {
@@ -34,22 +34,23 @@ function App() {
 
         <div className='bar'>
           <div className='center'>
+            <FontAwesomeIcon icon={faBowlFood} />
+            <span>Your Recipes</span>
+          </div>
+        </div>
+
+        <div className='bar'>
+          <div className='center'>
             <FontAwesomeIcon icon={faHeart} />
             <span>Favourites</span>
           </div>
         </div>
 
-        <div className='bar'>
-          <div className='center'>
-            <FontAwesomeIcon icon={faGear} />
-            <span>Settings</span>
-          </div>
-        </div>
 
         <div className='bar'>
           <div className='center'>
             <FontAwesomeIcon icon={faSignOut} />
-            <span>Log out</span>
+            <span>Log Out</span>
           </div>
         </div>
 
