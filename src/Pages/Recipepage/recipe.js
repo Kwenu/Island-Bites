@@ -12,7 +12,7 @@ import MilkRice from '../../images/1.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
-import '../../pages/Recipepage/recipe.css';
+import '../../Pages/Recipepage/recipe.css';
 
 function recipe() {
   return (

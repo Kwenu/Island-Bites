@@ -4,7 +4,7 @@ import IMAGE from '../../images/img.jpg';
 import LOGO from '../../images/logo.png';
 import GOOGLE_LOGO from '../../images/Google_logo.png';
 import FACEBOOK_ICON from '../../images/Facebook_logo.png';
-import '../../pages/Loginpage/login.js';
+import '../../Pages/Loginpage/login.js';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 const Login = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import Heart from '../../images/heart.png';
 import Comment from '../../images/comment.png';
 import Star from '../../images/star.png';
-import '../../pages/Homepage/home.css';
+import '../../Pages/Homepage/home.css';
 
 const FoodCard = ({ food }) => {
     return (

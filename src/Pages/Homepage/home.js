@@ -14,7 +14,7 @@ import Kokis from '../../images/9.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import ProfileImage from '../../images/profile.jpg'; 
 import Banner from '../../images/Banner.png';
-import '../../pages/Homepage/home.css';
+import '../../Pages/Homepage/home.css';
 
 const App = () => {
   const [displayedFoodItems, setDisplayedFoodItems] = useState(6); // State variable to track the number of displayed food items
