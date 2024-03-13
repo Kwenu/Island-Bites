@@ -13,7 +13,12 @@ import Edit from './Pages/Editprofilepage/edit.js';
 import Add from './Pages/Addrecipe/add.js';
 import Forgot from './Pages/ForgotPassword/Forgot.js';
 import Verify from './Pages/ForgotPassword/Verify.js';
-import New from './Pages/ForgotPassword/New.js'
+import New from './Pages/ForgotPassword/New.js';
+import Recipes from './Pages/Recipes.jsx';
+import Addd from './Pages/Addd.jsx';
+import Update from './Pages/Update.jsx';
+import Cards from './Pages/Cards.jsx';
+
 
 const App = () => {
   return (
@@ -28,7 +33,12 @@ const App = () => {
     </div>
       <Sidebar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Cards />} />
+          <Route path="/addd" element={<Addd />} />
+          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/update" element={<Update />} />
+          <Route path="/cards" element={<Cards />} />
+
           <Route path="/Home" element={<Home />} />
           <Route path="/recipe" element={<Recipe />} />
           <Route path="/favorite" element={<Favorite />} />
