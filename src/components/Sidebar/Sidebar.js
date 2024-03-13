@@ -47,7 +47,7 @@ const Sidebar = ({children}) => {
 
     return (
         <div className="container">
-            <div style={{width: isOpen ? "200px" : "100px"}} className="sidebar">
+            <div style={{width: isOpen ? "200px" : "130px"}} className="sidebar">
                 <div className="top_section">
                     <img
                         src={LOGO}
@@ -55,7 +55,7 @@ const Sidebar = ({children}) => {
                         style={{ display: isOpen ? 'block' : 'none' }}
                         className="logo"
                     />
-                    <div style={{marginLeft: isOpen ? "-15px" : "23px"}} className="bars cursor-pointer">
+                    <div style={{marginLeft: isOpen ? "-15px" : "40px"}} className="bars cursor-pointer">
                         <FaBars onClick={toggle}/>
                     </div>
                 </div>
