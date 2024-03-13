@@ -14,7 +14,6 @@ import Add from './Pages/Addrecipe/add.js';
 import Forgot from './Pages/ForgotPassword/Forgot.js';
 import Verify from './Pages/ForgotPassword/Verify.js';
 import New from './Pages/ForgotPassword/New.js';
-
 import Recipes from './Pages/Recipes.jsx';
 import Addd from './Pages/Addd.jsx';
 import Update from './Pages/Update.jsx';
