@@ -80,7 +80,8 @@ const Login = () => {
         
             </div>
             <div className='item-center flex flex-col my-4' id='signup'>
-                <p className='text-sm font-normal text-black'>Don't have an account ? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></p>
+            <Link to="/Signup">
+                <p className='text-sm font-normal text-black'>Don't have an account ? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></p></Link>
             </div>
             
             <div className="relative w-1/2 h-full flex flex-col justify-start" id='image'>
