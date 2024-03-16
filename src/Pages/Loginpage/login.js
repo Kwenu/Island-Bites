@@ -1,13 +1,39 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import IMAGE from '../../images/img.jpg';
 import LOGO from '../../images/logo.png';
 import GOOGLE_LOGO from '../../images/Google_logo.png';
 import FACEBOOK_ICON from '../../images/Facebook_logo.png';
 import '../../Pages/Loginpage/login.js';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
+import axios from "axios";
 
 const Login = () => {
+    
+    const [values,setValues] = useState({
+        email: "",
+        password: ""
+    })
+
+    const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post("http://localhost:8800/login" ,values)
+        .then(res => {
+            if(res.data.status === "Success") {
+                navigate("/home")
+
+            } else{
+                alert(res.data.Error);
+            }
+        })
+        .catch(err => console.log(err));
+
+    }
+
+
+    
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
     return (
@@ -25,7 +51,10 @@ const Login = () => {
                     <input 
                         type="email" 
                         placeholder='example@gmail.com'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='email'/>
+                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' 
+                        id='email'
+                        name='email'
+                        onChange={e => setValues({...values,email: e.target.value})}/>
                     
                     <div className="relative">
                         <p className='password'>Password</p>
@@ -33,7 +62,11 @@ const Login = () => {
                             <input 
                                 type={showPassword ? "text" : "password"} 
                                 placeholder='@#*%'
-                                className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none pr-10' id='password'/>
+                                className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none pr-10' 
+                                id='password'
+                                name='password'
+                                onChange={e => setValues({...values,password: e.target.value})}/>
+
                             <div className="h-full border-l border-gray-400"></div> {/* Vertical line */}
                             <span 
                                 className="eye-icon px-3"
@@ -55,8 +88,9 @@ const Login = () => {
                 </div>
 
                 <div className='w-full flex flex-col' id='signin'>
-                    <Link to="/Home">
-                        <button className='w-full font-bold text-white bg-[#65B741] rounded-2xl p-4 text-center flex items-center justify-center' id='button'>
+                    <Link to="">
+                        <button className='w-full font-bold text-white bg-[#65B741] rounded-2xl p-4 text-center flex items-center justify-center' id='button'
+                        onClick={handleSubmit}>
                             Sign in
                         </button>
                     </Link>
@@ -80,8 +114,9 @@ const Login = () => {
         
             </div>
             <div className='item-center flex flex-col my-4' id='signup'>
-            <Link to="/Signup">
-                <p className='text-sm font-normal text-black'>Don't have an account ? <span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></p></Link>
+            
+                <p className='text-sm font-normal text-black'>Don't have an account ? <Link to="/signup"> <span className='font-semibold underline underline-offset-2 cursor-pointer'>Sign up for free</span></Link></p>
+
             </div>
             
             <div className="relative w-1/2 h-full flex flex-col justify-start" id='image'>
