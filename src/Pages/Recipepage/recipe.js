@@ -20,7 +20,7 @@ function recipe() {
       <div className="search-profile-container">
         <div className="search-bar">
           <span className="search-text">All recipes | </span>
-          <input type="text" placeholder=" Search..." className="search-input" />
+          <input type="text" placeholder=" Search for recipes" className="search-input" />
           <div className="search-icon-container">
             <img src={SearchIcon} alt="Search" className="search-icon" />
           </div>

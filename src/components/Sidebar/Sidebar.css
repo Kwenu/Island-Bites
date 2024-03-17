@@ -26,30 +26,43 @@ main {
     margin-top: -5px;
 }
 
-.link{
+.link {
     display: flex;
     color: #fff;
-    padding: 20px 10px;
+    padding: 20px 15px; /* Adjust padding */
     gap: 15px;
     margin-bottom: 15px;
-    /* transition: all 0.5s; */
-    justify-content: center;
-    margin-left: 30px;
-    margin-right: 30px;
+    justify-content: flex-start; /* Align items to the start of the flex container */
+    align-items: center; /* Align items vertically */
+    flex-direction: row; /* Arrange items in a row */
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.link:hover{
-    background:#0B0B0B;
+.link:hover {
+    background: #0B0B0B;
     color: #fff;
-    /* transition: all 0.5s; */
     border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.active{
+.active {
     background: #0B0B0B;
     color: #fff;
     border-radius: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
-.icon, .link_text{
+
+.icon{
+    margin-left: 30px;
     font-size: 20px;
+}
+
+.link_text {
+    margin-right: 10px;
+    font-size: 20px;
+    flex-grow: 1; /* Allow the page names to grow and take up remaining space */
+    text-align: center; /* Center-align the text */
 }
