@@ -18,6 +18,7 @@ import Recipes from './Pages/Recipes.jsx';
 import Addd from './Pages/Addd.jsx';
 import Update from './Pages/Update.jsx';
 import Cards from './Pages/Cards.jsx';
+import Signup from './Pages/Signuppage/signup.js';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/forgot" element={<Forgot/>} />
         <Route path="/verify" element={<Verify/>} />
         <Route path="/new" element={<New/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </div>
       <Sidebar>
