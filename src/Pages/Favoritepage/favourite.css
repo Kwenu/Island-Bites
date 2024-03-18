@@ -1,0 +1,18 @@
+.even {
+    justify-self: start; /* Aligns the even cards to the start of the grid cell */
+}
+  
+.odd {
+    justify-self: end; /* Aligns the odd cards to the end of the grid cell */
+}
+
+.favorite-food-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.favorite-food-container .food-card {
+    width: calc(30% - 20px); /* Adjust the width as needed */
+    margin: 25px; /* Add margin between cards */
+}

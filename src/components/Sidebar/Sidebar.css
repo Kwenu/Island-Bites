@@ -1,0 +1,68 @@
+main {
+    width: calc(100% - 150px);
+    padding: 20px;
+    margin-left: 200px;
+}
+
+.sidebar{
+    background: #65B741;
+    color: #fff;
+    height: 250vh;
+    width: 200px;
+    transition: all 0.5s;
+    position: fixed;
+}
+
+.top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+
+.bars{
+    display: flex;
+    font-size: 20px;
+    margin-left: 55px;
+    margin-top: -5px;
+}
+
+.link {
+    display: flex;
+    color: #fff;
+    padding: 20px 15px; /* Adjust padding */
+    gap: 15px;
+    margin-bottom: 15px;
+    justify-content: flex-start; /* Align items to the start of the flex container */
+    align-items: center; /* Align items vertically */
+    flex-direction: row; /* Arrange items in a row */
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.link:hover {
+    background: #0B0B0B;
+    color: #fff;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.active {
+    background: #0B0B0B;
+    color: #fff;
+    border-radius: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.icon{
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.link_text {
+    margin-right: 10px;
+    font-size: 20px;
+    flex-grow: 1; /* Allow the page names to grow and take up remaining space */
+    text-align: center; /* Center-align the text */
+}

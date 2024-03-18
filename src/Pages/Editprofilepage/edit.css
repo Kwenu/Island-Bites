@@ -1,0 +1,108 @@
+#container #login {
+    /* margin-top: -35px; */
+    padding: 0px 72px;
+    font-size: 35px;
+}
+
+#login-details #welcome {
+    margin-top: -18px;
+    padding: 0px 72px;
+}
+
+#container #signup p {
+    margin-top: 720px;
+    margin-left: -520px;
+}
+
+#login-details #detail {
+    font-size: 16px;
+    margin-top: -20px;
+    padding: 0px 72px;
+}
+
+#detail .email,
+#detail .password,
+#detail .firstName,
+#detail .contactNum,
+#detail .lastName {
+    margin-top: -15px;
+}
+
+#detail p {
+    padding: 5px 0px;
+}
+
+#email,
+#firstName,
+#secondName,
+#password,
+#contactNumber,
+#country,
+#lastName {
+    position: relative;
+    padding: 10px;
+    border: 2px solid #d8d8d8;
+    border-radius: 10px; 
+    margin-bottom: 20px; 
+}
+
+/* Style placeholder text */
+#email::placeholder,
+#password::placeholder,
+#firstName::placeholder,
+#lastName::placeholder,
+#contactNum::placeholder {
+    color: #888; /* Placeholder text color */
+}
+
+/* Style eye icon */
+.eye-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input .eye-icon {
+    position: absolute;
+    top: 40%;
+    right: 8px;
+    transform: translateY(-50%);
+}
+
+.password-input .border-l {
+    position: absolute;
+    top: 2px;
+    right: 50px; 
+    /* height: 80%; */
+    height: calc(100% - 20px); 
+    border-left: 1px solid #d8d8d8;
+}
+
+#login-details #remember {
+    padding: 0px 72px;
+}
+
+#login-details #forgot {
+    padding: 0px 70px;
+}
+
+#login-details #signin {
+    padding: 20px 70px;
+}
+
+#login-details #or {
+    padding: 10px 70px;
+    margin-bottom: 10px;
+}
+
+#login-details #text {
+    padding: 0px 15px;
+}
+
+#login-details .google {
+    padding: 0px 70px;
+}

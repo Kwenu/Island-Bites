@@ -1,0 +1,14 @@
+/* src/styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+
+.container{
+    display:flex;
+}
