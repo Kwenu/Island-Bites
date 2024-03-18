@@ -1,16 +1,17 @@
-import express, { response }  from "express";
 import mysql from "mysql";
 import cors from "cors";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import cookieParser from "cookie-parser";
+import express from "express";
+
 
 const salt = 10;
 
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin:["http://localhost:3003"],
+    origin:["http://localhost:3000" , "http://localhost:3001" , "http://localhost:3002", "http://localhost:3003" , "http://localhost:3004", "http://localhost:3005", "http://localhost:3006" , "http://localhost:3007" ],
     methods: ["POST" , "GET"],
     credentials: true
 }));
@@ -25,7 +26,7 @@ const db = mysql.createConnection({
 
 });
 
-app.post("/signup" , (req,res) =>{ 
+app.post("/signup", (req, res) => {
     const sql =  "INSERT INTO users (`username`, `email`, `name`, `contactNum`, `country`, `password`, `coverPic`, `profilePic`) VALUES (?)";
 
     bcrypt.hash(req.body.password.toString() , salt,(err,hash) => {
@@ -79,6 +80,78 @@ app.get("/logout" , (req,res) => {
     return res.json({status:"Success"});
 })
 
+
+/app.get("/recipes", (req,res)=>{
+
+    const q = " SELECT * FROM recipes"
+    db.query (q,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+
+})
+
+
+
+
+
+/*app.get("/recipe", (req,res)=>{
+
+    const q = " SELECT * FROM recipes"
+    db.query (q,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+
+})*/
+
+
+
+app.get("/cards", (req,res)=>{
+    const q = " SELECT * FROM recipes"
+    db.query (q,(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+
+})
+
+app.post("/recipes", (req,res)=>{
+    const q = "INSERT INTO recipes (ingredients,description,instructions,img,userId,createdAt) VALUES (?)";
+    const values = [         
+        req.body.ingredients,
+        req.body.description,
+        req.body.instructions,
+        req.body.img,
+        req.body.userId,
+        req.body.createdAt,
+];
+
+    db.query(q,[values], (err,data)=>{
+        if(err) return res.json(err);
+        return res.json("Book has been created successfully..");
+    });
+
+});
+
+
+app.get("/recipes/:id", (req, res) => {
+    const recipeId = req.params.id;
+    const sql = "SELECT * FROM recipes WHERE id = ?";
+    db.query(sql, [recipeId], (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: "Error fetching recipe details" });
+        }
+        if (data.length === 0) {
+            return res.status(404).json({ error: "Recipe not found" });
+        }
+        return res.json(data[0]); // Return the details of the recipe
+    });
+});
+
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
 })
+
+
+
