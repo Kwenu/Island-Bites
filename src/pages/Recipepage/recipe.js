@@ -13,13 +13,8 @@ import SearchIcon from '../../images/search-icon.png';
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
 import '../../Pages/Recipepage/recipe.css';
-import ShareButton from '../../components/Share/Share';
 
 function recipe() {
-  const recipeData = {
-    title: 'Milk Rice',
-    description: 'A delicious Sri Lankan dish made with rice and coconut milk.',
-  };
   return (
     <div className="app-container">
       <div className="search-profile-container">
@@ -73,7 +68,6 @@ function recipe() {
               <li>Grated coconut for garnish (optional)</li>
             </p>
           </div>
-          <ShareButton recipe={recipeData} />
         </div>
         <div className='add-recipe'>
         <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
