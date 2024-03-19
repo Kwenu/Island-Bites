@@ -92,21 +92,6 @@ app.get("/logout" , (req,res) => {
 })
 
 
-
-
-
-/*app.get("/recipe", (req,res)=>{
-
-    const q = " SELECT * FROM recipes"
-    db.query (q,(err,data)=>{
-        if(err) return res.json(err)
-        return res.json(data)
-    })
-
-})*/
-
-
-
 app.get("/cards", (req,res)=>{
     const q = " SELECT * FROM recipes"
     db.query (q,(err,data)=>{
@@ -149,9 +134,22 @@ app.get("/recipes/:id", (req, res) => {
     });
 });
 
+
+// Add a new route to fetch user information by email
+app.get("/user/:email", (req, res) => {
+    const userEmail = req.params.email;
+    const sql = "SELECT * FROM users WHERE email = ?";
+    db.query(sql, [userEmail], (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: "Error fetching user information" });
+        }
+        if (data.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        return res.json(data[0]); // Return the user information
+    });
+});
+
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
 })
-
-
-
