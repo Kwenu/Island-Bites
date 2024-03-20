@@ -4,7 +4,7 @@ import { FaFileUpload ,FaBars} from "react-icons/fa";
 import { RiHome2Line } from "react-icons/ri";
 import { BiFoodMenu } from "react-icons/bi";
 import { MdFavoriteBorder } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+import { FaGear } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 import LOGO from '../../images/logo.png'
@@ -35,8 +35,8 @@ const Sidebar = ({children}) => {
         },
         {
             path:"/profile",
-            name:"Profile",
-            icon:<CgProfile />
+            name:"Settings",
+            icon:<FaGear />
         },
         {
             path:"/logout",
