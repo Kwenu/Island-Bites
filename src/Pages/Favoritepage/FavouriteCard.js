@@ -1,31 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Heart from '../../images/heart.png';
-import BlackHeart from '../../images/heart-filled.png'; // New black heart icon
+import React from 'react';
 import Comment from '../../images/comment.png';
 import Star from '../../images/star.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import '../Homepage/home.css';
 
-const FoodCard = ({ food }) => {
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    useEffect(() => {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        setIsFavorite(favorites.some(item => item.id === food.id));
-    }, [food.id]);
-
-    const toggleFavorite = () => {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        if (isFavorite) {
-            const updatedFavorites = favorites.filter(item => item.id !== food.id);
-            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-            setIsFavorite(false);
-        } else {
-            favorites.push(food);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            setIsFavorite(true);
-        }
-    };
-
+const FavouriteCard = ({ food }) => {
     return (
         <div className="food-card">
             <img src={food.image} alt={food.name} className="food-card-image" />
@@ -42,8 +22,8 @@ const FoodCard = ({ food }) => {
                 <div className="flex justify-between items-center mt-2">
                     <p className="text-gray-700 text-base mr-2 text-red-600 font-bold" id='Time'>{food.time}</p>
                     <div className='food-card-buttons'>
-                        <button className="mr-2" onClick={toggleFavorite}>
-                            <img src={isFavorite ? BlackHeart : Heart} alt="Favorite" className="w-6 h-6" id='Favorite'/>
+                        <button className="mr-2">
+                            <FontAwesomeIcon icon={faHeart} className="w-6 h-6" id='favourite'/>
                         </button>
                         <button>
                             <img src={Comment} alt="Comment" className="w-6 h-6" id='Comment'/>
@@ -55,4 +35,4 @@ const FoodCard = ({ food }) => {
     );
 };
 
-export default FoodCard;
+export default FavouriteCard;

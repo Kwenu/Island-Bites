@@ -4,7 +4,7 @@ import { FaFileUpload ,FaBars} from "react-icons/fa";
 import { RiHome2Line } from "react-icons/ri";
 import { BiFoodMenu } from "react-icons/bi";
 import { MdFavoriteBorder } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+import { FaGear } from "react-icons/fa6";
 import { IoIosLogOut } from "react-icons/io";
 import { NavLink } from 'react-router-dom';
 import LOGO from '../../images/logo.png'
@@ -35,8 +35,8 @@ const Sidebar = ({children}) => {
         },
         {
             path:"/profile",
-            name:"Profile",
-            icon:<CgProfile />
+            name:"Settings",
+            icon:<FaGear />
         },
         {
             path:"/logout",
@@ -47,7 +47,7 @@ const Sidebar = ({children}) => {
 
     return (
         <div className="container">
-            <div style={{width: isOpen ? "200px" : "100px"}} className="sidebar">
+            <div style={{width: isOpen ? "200px" : "130px"}} className="sidebar">
                 <div className="top_section">
                     <img
                         src={LOGO}
@@ -55,7 +55,7 @@ const Sidebar = ({children}) => {
                         style={{ display: isOpen ? 'block' : 'none' }}
                         className="logo"
                     />
-                    <div style={{marginLeft: isOpen ? "-15px" : "23px"}} className="bars cursor-pointer">
+                    <div style={{marginLeft: isOpen ? "-15px" : "40px"}} className="bars cursor-pointer">
                         <FaBars onClick={toggle}/>
                     </div>
                 </div>

@@ -1,9 +1,28 @@
-import React from 'react'
+import React from 'react';
+import '../../Pages/Uploadpage/upload.css';
 
-function upload() {
+function Upload() {
   return (
-    <div><h1>upload</h1></div>
+    <div className="Img">
+        <div>
+        <h3>Upload Image.</h3>
+        <div className="img-container">
+            <label htmlFor="image" className="choose-file-button">
+                Choose File
+            </label>
+            <input type="file" id="image" accept="image/*" />
+       </div>
+       <div className='Label'>
+        <label htmlFor="Description">Recipe Details.</label>
+        <textarea id="Description"></textarea>
+      </div>
+      <hr />
+      <div>
+        <h3>Suggestions.</h3>
+      </div>
+     </div>
+    </div>
   )
 }
 
-export default upload
+export default Upload;
