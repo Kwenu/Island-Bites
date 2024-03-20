@@ -30,6 +30,10 @@ function ProfilePage() {
   }
 
 
+
+
+
+
   return (
 
     <div className="profile">
@@ -81,7 +85,7 @@ function ProfilePage() {
           <FontAwesomeIcon icon={faHeart} />
           <div>
             <span>
-              <Link to="">My Recipe</Link>
+              <Link to="/myrecipe">My Recipe</Link>
             </span>
           </div>
         </div>

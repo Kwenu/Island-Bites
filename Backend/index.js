@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin:["http://localhost:3000" , "http://localhost:3001" , "http://localhost:3002", "http://localhost:3003" , "http://localhost:3004", "http://localhost:3005", "http://localhost:3006" , "http://localhost:3007" ],
-    methods: ["POST" , "GET"],
+    methods: ["POST" , "GET" , "PUT" , "DELETE"],
     credentials: true
 }));
 app.use(cookieParser());
@@ -150,6 +150,42 @@ app.get("/user/:email", (req, res) => {
     });
 });
 
+
+// In index.js
+
+app.get("/myrecipes", (req, res) => {
+    const userEmail = req.query.email; // Get user's email from the query string
+    const sql = "SELECT * FROM recipes WHERE userId IN (SELECT id FROM users WHERE email = ?)";
+    db.query(sql, [userEmail], (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: "Error fetching user's recipes" });
+        }
+        return res.json(data); // Return the recipes belonging to the user
+    });
+});
+
+
+
+// In index.js
+
+
+// Add a new route to handle recipe deletion
+app.delete("/recipes/:id", (req, res) => {
+    const recipeId = req.params.id;
+    const sql = "DELETE FROM recipes WHERE id = ?";
+    db.query(sql, [recipeId], (err, result) => {
+        if (err) {
+            console.error("Error deleting recipe:", err);
+            return res.status(500).json({ error: "Error deleting recipe" });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Recipe not found" });
+        }
+        return res.json({ status: "Success" }); // Send success response upon successful deletion
+    });
+});
+
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
 })
+
