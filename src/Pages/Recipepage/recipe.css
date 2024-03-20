@@ -71,3 +71,25 @@
     border-radius: 20px;
     font-weight: bold;
 }
+
+/* Add this CSS to your existing recipe.css file */
+
+.star-rating {
+    display: flex; /* Adjusting stars horizontally */
+    align-items: center; /* Align stars vertically */
+    margin-top: 10px;
+  }
+  
+  .star-rating p {
+    margin-right: 10px;
+  }
+  
+  .star {
+    cursor: pointer;
+  }
+  
+  input[type="radio"] {
+    display: none; /* Hide radio buttons */
+  }
+  
+  
