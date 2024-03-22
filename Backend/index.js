@@ -185,7 +185,36 @@ app.delete("/recipes/:id", (req, res) => {
     });
 });
 
+
+app.put("/recipes/:id", (req, res) => {
+    const recipeId = req.params.id;
+    const sql = "UPDATE recipes SET `ingredients`= ?, `description`= ?, `instructions`= ?, `img`= ?, `userId`= ?, `createdAt`= ? WHERE id = ?";
+
+    const values = [         
+        req.body.ingredients,
+        req.body.description,
+        req.body.instructions,
+        req.body.img,
+        req.body.userId,
+        req.body.createdAt,
+];
+
+    db.query(sql, [...values,recipeId], (err, result) => {
+        if (err) {
+            console.error("Error updating recipe:", err);
+            return res.status(500).json({ error: "Error updating recipe" });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: "Recipe not found" });
+        }
+        return res.json({ status: "Success" }); // Send success response upon successful deletion
+    });
+});
+
+
+
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
 })
+
 
