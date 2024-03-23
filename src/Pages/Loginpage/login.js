@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import IMAGE from '../../images/img.jpg';
 import LOGO from '../../images/logo.png';
@@ -7,6 +7,8 @@ import FACEBOOK_ICON from '../../images/Facebook_logo.png';
 import '../../Pages/Loginpage/login.js';
 import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 import axios from "axios";
+import {auth, googleProvider, facebookProvider} from '../../components/FirebaseConfig/Config.js';
+import {signInWithPopup} from "firebase/auth";
 
 const Login = () => {
     
@@ -31,10 +33,67 @@ const Login = () => {
         .catch(err => console.log(err));
 
     }
-
-
+    const [value,setValue] = useState('')
+    const handleClickGoogle = () => {
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = googleProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                setValue(user.email);
+                localStorage.setItem("email", user.email);
+                // Redirect or do whatever you need after successful sign-in
+                navigate("/home"); // Redirect to home page after successful sign-in
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // Handle specific error cases if needed
+                if (errorCode === 'auth/popup-closed-by-user') {
+                    // User closed the sign-in popup
+                    console.log('User closed the sign-in popup');
+                } else {
+                    // Handle other errors
+                    console.error(errorCode, errorMessage);
+                }
+            });
+    };
+    const handleClickFacebook = () => {
+        signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                const credential = facebookProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                setValue(user.email); // Update the value state
+                localStorage.setItem("email", user.email);
+                // Redirect or do whatever you need after successful sign-in
+                navigate("/home"); // Redirect to home page after successful sign-in
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // Handle specific error cases if needed
+                if (errorCode === 'auth/popup-closed-by-user') {
+                    // User closed the sign-in popup
+                    console.log('User closed the sign-in popup');
+                } else {
+                    // Handle other errors
+                    console.error(errorCode, errorMessage);
+                }
+            });
+    };
     
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
     return (
         <div className="w-full h-screen flex" id='container'>
@@ -88,12 +147,12 @@ const Login = () => {
                 </div>
 
                 <div className='w-full flex flex-col' id='signin'>
-                    <Link to="">
                         <button className='w-full font-bold text-white bg-[#65B741] rounded-2xl p-4 text-center flex items-center justify-center' id='button'
                         onClick={handleSubmit}>
                             Sign in
                         </button>
-                    </Link>
+                                  
+                    
                 </div>
 
                 <div className='w-full flex items-center justify-center reletive py-2' id='or'>
@@ -102,16 +161,17 @@ const Login = () => {
                 </div>
 
                 <div className='google'>
-                    <button className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-[d8d8d8] rounded-3xl p-4 text-center flex items-center justify-center' id='google'>
+                    <button className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-[d8d8d8] rounded-3xl p-4 text-center flex items-center justify-center' id='google'
+                    onClick={handleClickGoogle}>
                         <img src={GOOGLE_LOGO} className='h-6 mr-5' />
                         Sign in with Google
                     </button>
-                    <button className='w-full text-[#060606] my-2 font-semibold bg-white border-2 border-[d8d8d8] rounded-3xl p-4 text-center flex items-center justify-center' id='google'>
-                        <img src={FACEBOOK_ICON} className='h-6 mr-5' />
+                </div>
+                    <button className="w-full text-[#060606] my-2 font-semibold bg-white border-2 border-[d8d8d8] rounded-3xl p-4 text-center flex items-center justify-center" id="google"
+                     onClick={handleClickFacebook}>
+                        <img src={FACEBOOK_ICON} className="h-6 mr-5" />
                         Sign in with Facebook
                     </button>
-                </div>
-        
             </div>
             <div className='item-center flex flex-col my-4' id='signup'>
             
