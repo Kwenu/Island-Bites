@@ -16,3 +16,19 @@
     width: calc(30% - 20px); /* Adjust the width as needed */
     margin: 25px; /* Add margin between cards */
 }
+
+.load-more-container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 480px;
+    margin-right: 480px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 10px 117px;  
+    background-color: #65B741;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
