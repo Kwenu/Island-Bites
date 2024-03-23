@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Pages/Loginpage/login.js';
@@ -11,6 +11,14 @@ import Upload from './Pages/Uploadpage/upload.js';
 import Logout from './Pages/Logoutpage/logout.js';
 import Edit from './Pages/Editprofilepage/edit.js';
 import Add from './Pages/Addrecipe/add.js';
+import Forgot from './Pages/ForgotPassword/Forgot.js';
+import Verify from './Pages/ForgotPassword/Verify.js';
+import New from './Pages/ForgotPassword/New.js';
+import Recipes from './Pages/Recipes.jsx';
+import Addd from './Pages/Addd.jsx';
+import Update from './Pages/Update.jsx';
+import Cards from './Pages/Cards.jsx';
+import Signup from './Pages/Signuppage/signup.js';
 
 const App = () => {
   return (
@@ -18,11 +26,20 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/Login" element={<Login />} />
+        <Route path="/forgot" element={<Forgot/>} />
+        <Route path="/verify" element={<Verify/>} />
+        <Route path="/new" element={<New/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </div>
       <Sidebar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Cards />} />
+          <Route path="/addd" element={<Addd />} />
+          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/update" element={<Update />} />
+          <Route path="/cards" element={<Cards />} />
+
           <Route path="/Home" element={<Home />} />
           <Route path="/recipe" element={<Recipe />} />
           <Route path="/favorite" element={<Favorite />} />

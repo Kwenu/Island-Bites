@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../../Pages/Logoutpage/logout.css";
+import axios from "axios";
 
 function Logout({ setOpenModal }) {
+
+  const handleDelete = () =>{
+    axios.get("http://localhost:8800/logout")
+    .then(res => {
+      window.location.reload(true); // Use window.location.reload(true) instead of location.reload(true)
+    }).catch(err => console.log(err));
+  }
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -27,7 +35,7 @@ function Logout({ setOpenModal }) {
           >
             Cancel
           </button>
-          <Link to="/Login"><button>Log out</button></Link>
+          <Link to="/login"><button onClick={handleDelete}>Log out</button></Link>
         </div>
       </div>
     </div>
