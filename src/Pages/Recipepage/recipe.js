@@ -6,6 +6,8 @@ import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
 import { FaStar } from 'react-icons/fa'; // Importing star icon
 import '../../Pages/Recipepage/recipe.css';
+import CommentBar from './commentbar';
+
 
 function Recipe() {
   const [rating, setRating] = useState(0);
@@ -95,8 +97,8 @@ function Recipe() {
           <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
         </div>
       </div>
+      <CommentBar />
     </div>
   );
 }
-
 export default Recipe;
