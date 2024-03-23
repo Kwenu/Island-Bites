@@ -19,6 +19,7 @@ import '../../Pages/Homepage/home.css';
 const Home = () => {
   const [displayedFoodItems, setDisplayedFoodItems] = useState(6); // State variable to track the number of displayed food items
   const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem('favorites')) || []); // State variable to track favorite items
+  const [searchTerm, setSearchTerm] = useState(''); // State variable to store the user's search term
 
   const foodItems = [
     {
@@ -86,6 +87,8 @@ const Home = () => {
     },
   ];
 
+  const filteredFoodItems = searchTerm ? foodItems.filter(food => food.name.toLowerCase().includes(searchTerm.toLowerCase())) : foodItems; // Filter food items based on search term
+
   const loadMore = () => {
     // Increase the number of displayed food items by 3 when "Load More" button is clicked
     setDisplayedFoodItems(displayedFoodItems + 3);
@@ -104,12 +107,16 @@ const Home = () => {
     }
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <div className="app-container">
       <div className="search-profile-container">
         <div className="search-bar">
           <span className="search-text">All recipes | </span>
-          <input type="text" placeholder=" Search for recipes" className="search-input" />
+          <input type="text" placeholder=" Search for recipes" className="search-input" value={searchTerm} onChange={handleSearchChange} />
           <div className="search-icon-container">
             <img src={SearchIcon} alt="Search" className="search-icon" />
           </div>
@@ -127,11 +134,11 @@ const Home = () => {
         Recommended Recipes
       </div>
       <div className="food-card-container">
-        {foodItems.slice(0, displayedFoodItems).map(food => (
+        {filteredFoodItems.slice(0, displayedFoodItems).map(food => (
           <FoodCard key={food.id} food={food} toggleFavorite={() => toggleFavorite(food)} isFavorite={favorites.some(item => item.id === food.id)} />
         ))}
       </div>
-      {displayedFoodItems < foodItems.length && (
+      {displayedFoodItems < filteredFoodItems.length && (
         <div className='load-more'>
           <button onClick={loadMore}>Load More</button>
         </div>
