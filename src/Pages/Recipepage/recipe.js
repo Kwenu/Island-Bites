@@ -1,23 +1,18 @@
-// recipe.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MilkRice from '../../images/1.jpg'; 
 import SearchIcon from '../../images/search-icon.png'; 
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
+import { FaStar } from 'react-icons/fa'; // Importing star icon
 import '../../Pages/Recipepage/recipe.css';
 
 function Recipe() {
-  const [comments, setComments] = useState([]);
-  const [commentText, setCommentText] = useState('');
+  const [rating, setRating] = useState(0);
 
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (commentText.trim() !== '') {
-      setComments([...comments, commentText]);
-      setCommentText('');
-    }
+  // Function to handle rating change
+  const handleRating = (newRating) => {
+    setRating(newRating);
   };
 
   return (
@@ -73,23 +68,27 @@ function Recipe() {
               <li>Grated coconut for garnish (optional)</li>
             </p>
           </div>
-          <div className="comment-section">
-            <form onSubmit={handleCommentSubmit}>
-              <textarea
-                value={commentText}
-                onChange={(e) => setCommentText(e.target.value)}
-                placeholder="Add your comment..."
-                className="comment-input"
-              ></textarea>
-              <button type="submit" className="comment-button">Post Comment</button>
-            </form>
-            <div className="comments">
-              {comments.map((comment, index) => (
-                <div key={index} className="comment">
-                  <p>{comment}</p>
-                </div>
-              ))}
-            </div>
+          {/* Star Rating Component */}
+          <div className='star-rating'>
+            <p>Rate this recipe:</p>
+            {[...Array(5)].map((star, i) => {
+              const ratingValue = i + 1;
+              return (
+                <label key={i}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={ratingValue}
+                    onClick={() => handleRating(ratingValue)}
+                  />
+                  <FaStar
+                    className="star"
+                    color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
+                    size={30}
+                  />
+                </label>
+              );
+            })}
           </div>
         </div>
         <div className='add-recipe'>
@@ -97,7 +96,7 @@ function Recipe() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Recipe;
