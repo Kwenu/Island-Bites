@@ -1,20 +1,25 @@
-import React from 'react'
+// recipe.js
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MilkRice from '../../images/1.jpg'; 
-// import StringHoppers from '../../images/2.jpg';
-// import Hoppers from '../../images/3.jpg';
-// import Pittu from '../../images/4.jpg';
-// import Rotti from '../../images/5.jpg';
-// import LumpRice from '../../images/6.jpg';
-// import Koththu from '../../images/7.jpg';
-// import Kavum from '../../images/8.jpg';
-// import Kokis from '../../images/9.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
 import '../../Pages/Recipepage/recipe.css';
 
-function recipe() {
+function Recipe() {
+  const [comments, setComments] = useState([]);
+  const [commentText, setCommentText] = useState('');
+
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    if (commentText.trim() !== '') {
+      setComments([...comments, commentText]);
+      setCommentText('');
+    }
+  };
+
   return (
     <div className="app-container">
       <div className="search-profile-container">
@@ -68,13 +73,31 @@ function recipe() {
               <li>Grated coconut for garnish (optional)</li>
             </p>
           </div>
+          <div className="comment-section">
+            <form onSubmit={handleCommentSubmit}>
+              <textarea
+                value={commentText}
+                onChange={(e) => setCommentText(e.target.value)}
+                placeholder="Add your comment..."
+                className="comment-input"
+              ></textarea>
+              <button type="submit" className="comment-button">Post Comment</button>
+            </form>
+            <div className="comments">
+              {comments.map((comment, index) => (
+                <div key={index} className="comment">
+                  <p>{comment}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         <div className='add-recipe'>
-        <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
-      </div>
+          <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
+        </div>
       </div>
     </div>
   )
 }
 
-export default recipe
+export default Recipe;
