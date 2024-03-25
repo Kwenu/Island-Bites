@@ -19,20 +19,21 @@ const Login = () => {
 
     const navigate = useNavigate()
     axios.defaults.withCredentials = true;
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post("http://localhost:8800/login" ,values)
-        .then(res => {
-            if(res.data.status === "Success") {
-                navigate("/home")
-
-            } else{
-                alert(res.data.Error);
-            }
-        })
-        .catch(err => console.log(err));
-
+        axios.post("http://localhost:8800/login", values)
+            .then(res => {
+                if (res.data.status === "Success") {
+                    localStorage.setItem('userEmail', values.email); // Set user's email in localStorage
+                    navigate("/home");
+                } else {
+                    alert(res.data.Error);
+                }
+            })
+            .catch(err => console.log(err));
     }
+
     const [value,setValue] = useState('')
     const handleClickGoogle = () => {
         signInWithPopup(auth, googleProvider)
@@ -92,6 +93,7 @@ const Login = () => {
                 }
             });
     };
+
     
 const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 

@@ -1,93 +1,132 @@
-import React, { useState } from 'react';
-import Profile from '../../images/profilePic.jpg';
-import '../../Pages/Editprofilepage/edit.css';
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
+import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import '../Editprofilepage/edit.css'
+import axios from 'axios';
 
-const Login = () => {
-    const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+
+const Edit = () => {
+    
+  const {id} = useParams();
+  const [username,setUsername] = useState('');
+  const [name, setName] = useState('');
+  const [contactNum,setContactNum] = useState('');
+  const [country, setCountry] = useState('');
+  const [email,setEmail] = useState('');
+
+
+useEffect (()=>{
+        axios.get("http://localhost:8800/edit/" +id)
+        .then(res =>{
+            setUsername(res.data[0].username);
+            setName(res.data[0].name);
+            setContactNum(res.data[0].contactNum);
+            setCountry(res.data[0].country);
+            setEmail(res.data[0].email);
+        })
+        .catch(err => console.log(err));
+
+    },[]);
+
+
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        axios.put("http://localhost:8800/editprofile/" +id,{username,name,contactNum,country,email})
+        .then(res =>{
+            if(res.data.updated){
+                navigate("/profile")
+            }else{
+                alert("Not updated");
+            }
+        })
+    
+    }
+
+    const handleCancel = () => {
+        navigate("/profile")
+      };
 
     return (
-        <div className="w-full h-screen flex" id='container'>
-            <div className="profile">
-                <div className='images'>
-                    <img src= {Profile} alt='' className='profilePic'></img>
-                </div>
-            </div>
-            <div className="w-1/2 h-full flex flex-col justify-start" id='login-details'>
-                {/* <img src={LOGO} className="w-1/2 p-10" id="logo" />  */}
+        <form onSubmit={handleSubmit} >
+            <div className="edit-container">
+                <h3 className='edit'>Edit Profile</h3>
+                <div className="edit-details">
+                <p className='username'>Username</p>
+                    <input
+                        type="text"
+                        placeholder='username'
+                        id='username'
+                        value={username}
+                        onChange={e => setUsername(e.target.value)} />
 
-                <div className='w-full flex flex-col mb-10'>
-                    <h3 className='text-2x1 font-bold mb-4' id='login'>Edit Profile</h3>
-                </div>
-
-                <div className='w-full flex flex-col' id='detail'>
-
-                    <p className='firstName'>First Name</p>
+                <p className='name'>Name</p>
                     <input 
                         type="text" 
-                        placeholder='First Name'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='firstName'/>
-                    
-                    <p className='secondName'>Last Name</p>
-                    <input 
-                        type="text" 
-                        placeholder='Last Name'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='secondName'/>
+                        placeholder='name' 
+                        id='name'
+                        value={name}
+                        onChange={e => setName(e.target.value)}/>
 
-                    <p className='email'>E-mail</p>
-                    <input 
-                        type="email" 
-                        placeholder='example@gmail.com'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='email'/>    
-
-                    <p className='contactNumber'>Contact Number</p>
+                <p className='contactNum'>Contact Number</p>
                     <input 
                         type="text" 
                         placeholder='Contact Number'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='contactNumber'/>
-                    
-                    <p className='country'>Country</p>
+                        id='contactNum'
+                        value={contactNum}
+                        onChange={e => setContactNum(e.target.value)}/>
+
+                <p className='country'>Country</p>
                     <input 
                         type="text" 
                         placeholder='country'
-                        className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none' id='country'/>
+                        id='country'
+                        value={country}
+                        onChange={e => setCountry(e.target.value)}/>
 
-                    <div className="relative">
-                        <p className='password'>Password</p>
-                        <div className="password-input flex items-center">
-                            <input 
-                                type={showPassword ? "text" : "password"} 
-                                placeholder='@#*%'
-                                className='w-full text-black py-4 my-1 bg-transparent outline-none focus:outline-none pr-10' id='password'/>
-                                
-                            <div className="h-full border-l border-grey-400"></div> {/* Vertical line */}
-                            <span 
-                                className="eye-icon px-3"
-                                onClick={() => setShowPassword(!showPassword)}>
-                                {showPassword ? <FaEyeSlash className="text-gray-400 hover:text-gray-700" /> : <FaEye className="text-gray-400 hover:text-gray-700" />}
-                            </span>
-
-
-                        </div>
-                    </div>
+                <p className='email'>E-mail</p>
+                    <input 
+                        type="email" 
+                        placeholder='example@gmail.com'
+                        id='email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}/>
                 </div>
-
-                <div className='w-full flex flex-col' id='signin'>
-                    <button className='w-full font-bold text-black bg-[white] border border-solid border-[black] rounded-2xl p-4 text-center flex items-center justify-center' id='button'>
+                
+                <div className="buttons">
+                <div className="cancel">
+                    <button className='Cancel' id='button' >
                         Cancle
                     </button>
                 </div>
-
-                <div className='w-full flex flex-col' id='signin'>
-                    <button className='w-full font-bold text-white bg-[#65B741] border border-solid border-[#65B741] rounded-2xl p-4 text-center flex items-center justify-center' id='button'>
+                <div className="save">
+                    <button className='Save' id='button' onClick={handleCancel}>
                         Save
                     </button>
                 </div>
-        
+                </div>
             </div>
-            
-        </div>
+        </form>
+        
     )
 }
 
-export default Login;
+export default Edit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
