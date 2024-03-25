@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link once
+
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import Banner from '../images/Banner.png';
-import SearchIcon from '../images/search-icon.png'; 
-import ProfileImage from '../images/profile.jpg'; 
-import '../Pages/Homepage/home.css';
-import Heart from '../images/heart.png';
-import Comment from '../images/comment.png';
-import Star from '../images/star.png';
+import Heart from '../../images/heart.png';
+import Comment from '../../images/comment.png';
+import Star from '../../images/star.png';
+import '../RecipeCardspage/cards.css';
+import Banner from '../../images/Banner.png';
 
 function Cards() {
     const [cards, setCards] = useState([]);
@@ -28,17 +27,17 @@ function Cards() {
 
     return (
         <div className="app-container">
-            <div className="search-profile-container">
+<div className="search-profile-container">
                 <div className="search-bar">
                     <span className="search-text">All recipes | </span>
                     <input type="text" placeholder=" Search..." className="search-input" />
                     <div className="search-icon-container">
-                        <img src={SearchIcon} alt="Search" className="search-icon" />
+                        <img src={Banner} alt="Search" className="search-icon" />
                     </div>
                 </div>
                 <div className="profile-icon-container">
                     <button>
-                        <Link to="/profile"><img src={ProfileImage} alt="Profile" className="profile-image" /></Link>
+                        <Link to="/profile"><img src="" alt="Profile" className="profile-image" /></Link>
                     </button>   
                 </div>
             </div>
@@ -47,25 +46,25 @@ function Cards() {
                 <img src={Banner} alt="banner" />
             </div>
             <div className='name'>
-                Recommended Recipes
+                Recipe Cards
             </div>
             
             <div className="food-card-container">
                 {cards.map(card => (
                     <div className="food-card" key={card.id}>
-                        <img src='' alt='' className="food-card-image" />
+                        <img src={`http://localhost:8800/images/`+ card.img} alt='' className="food-card-image" />
                         <div className="food-card-content">
                             <div className="flex justify-between items-center">
                                 <div>
                                     <div className="font-bold text-xl mb-2" id='Name'>{card.description}</div>
                                 </div>
                                 <div className="inline-flex items-center" id='Rating'>
-                                    <img src={Star} alt="Star" className="w-6 h-6 mr-1" />
+                                <img src={Star} alt="Star" className="w-6 h-6 mr-1" />
                                     <p className="text-gray-700 text-base inline" id='Rate'>{card.rating}</p>
                                 </div>
                             </div>
                             <div className="flex justify-between items-center mt-2">
-                                <p className="text-gray-700 text-base mr-2 text-red-600 font-bold" id='Time'>{card.time}</p>
+                                <p className="text-gray-700 text-base mr-2 text-red-600 font-bold" id='Time'>{card.createdAt}</p>
                                 <div className='food-card-buttons'>
                                     <button className="mr-2">
                                         <img src={Heart} alt="Favorite" className="w-6 h-6" id='Favorite'/>
@@ -84,7 +83,7 @@ function Cards() {
             </div>
 
             <div className='add-recipe'>
-                <Link to="/addd"><button className='button-recipe'>Add Recipes</button></Link>
+                <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
             </div>
 
             <div className="main-footer">
