@@ -4,19 +4,25 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import cookieParser from "cookie-parser";
 import express from "express";
-
+import multer from "multer";
+import path from "path";
+// import nodemailer from "nodemailer";
 
 const salt = 10;
 
 const app = express();
+
 app.use(express.json());
+
 app.use(cors({
     origin:["http://localhost:3000" , "http://localhost:3001" , "http://localhost:3002", "http://localhost:3003" , "http://localhost:3004", "http://localhost:3005", "http://localhost:3006" , "http://localhost:3007" ],
     methods: ["POST" , "GET" , "PUT" , "DELETE"],
     credentials: true
 }));
+
 app.use(cookieParser());
 
+app.use(express.static("public"))
 
 const db = mysql.createConnection({
     host:"localhost",
@@ -101,6 +107,18 @@ app.get("/cards", (req,res)=>{
 
 })
 
+const storage = multer.diskStorage({
+    destination: function(req,file, cb){
+        return cb(null, "./public/images")
+    },
+    filename: function(req, file, cb){
+        return cb(null, `${Date.now()}_${file.originalname}`)
+    }
+})
+
+const upload = multer({storage})
+
+
 app.post("/recipes", (req,res)=>{
     const q = "INSERT INTO recipes (ingredients,description,instructions,img,userId,createdAt) VALUES (?)";
     const values = [         
@@ -151,7 +169,6 @@ app.get("/user/:email", (req, res) => {
 });
 
 
-// In index.js
 
 app.get("/myrecipes", (req, res) => {
     const userEmail = req.query.email; // Get user's email from the query string
