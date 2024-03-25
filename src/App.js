@@ -52,7 +52,7 @@ const App = () => {
           <Route path="/upload" element={<Upload />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout/>} />
-          <Route path="/edit" element={<Edit/>} />
+          <Route path="/edit/:id" element={<Edit/>} />
           <Route path="/add" element={<Add/>} />
           <Route path="/myrecipe" element={<Myrecipe/>} />
           <Route path="/update/:id" element={<Update/>} />

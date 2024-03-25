@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './profile.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaEdit } from 'react-icons/fa';
 import { faGear, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import Profile from '../../images/profilePic.jpg';
+import Logout from '../../Pages/Logoutpage/logout';
 import axios from 'axios';
+
 
 function ProfilePage() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -63,7 +66,7 @@ function ProfilePage() {
           <FontAwesomeIcon icon={faUser} />
           <div className='edit'>
             <span>
-              <Link to="/edit">Edit Profile</Link>
+              <Link to={`/edit/${userInfo.id}`}>Edit Profile</Link>
             </span>
           </div>
         </div>

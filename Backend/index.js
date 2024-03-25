@@ -212,6 +212,26 @@ app.put("/recipes/:id", (req, res) => {
 });
 
 
+app.put("/editprofile/:id" ,(req, res) => {
+    const sql = "UPDATE users SET `username` =?,`email` =?, `name`=?, `contactNum` =? , `country` =? WHERE id = ? ";
+    const id = req.params.id;
+    db.query(sql, [req.body.username, req.body.email, req.body.name,req.body.contactNum,req.body.country,id],(err, result) =>{
+        if(err) return res.json("Error");
+        return res.json({updated: true})
+    })
+})
+
+
+app.get('/edit/:id', (req,res) =>{
+    const sql = "SELECT * FROM users WHERE id = ?";
+    const id = req.params.id;
+    db.query(sql,[id], (err, result) =>{
+        if(err) return res.json({Error: err});
+        return res.json(result);
+    })
+})
+
+
 
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
