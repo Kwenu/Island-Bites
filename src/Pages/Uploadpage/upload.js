@@ -1,59 +1,29 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import '../../Pages/Uploadpage/upload.css';
 
 function Upload() {
-  const [image, setImage] = useState(null);
-  const [prediction, setPrediction] = useState(null);
-
-  const handleFileChange = (e) => {
-    setImage(e.target.files[0]);
-  };
-
-  const handleUpload = async () => {
-    if (!image) {
-      alert('Please select an image.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', image);
-
-    try {
-      const response = await axios.post('http://localhost:3000/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      setPrediction(response.data.predicted_dish);
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Error occurred while processing image.');
-    }
-  };
-
   return (
-    <div className="Img">
-      <div>
-        <h3>Upload Image.</h3>
-        <div className="img-container">
-          <label htmlFor="image" className="choose-file-button">
+    <div className="upload-container">
+      <div className='upload-content'>
+        <h3 className='upload-heading'>Upload Image</h3>
+        <div className="image-upload-container">
+          <label htmlFor="image" className="upload-choose-file-button">
             Choose File
           </label>
-          <input type="file" id="image" accept="image/*" onChange={handleFileChange} />
+          <input type="file" id="image" accept="image/*" />
         </div>
-        <hr />
-        <div>
-          <button onClick={handleUpload}>Upload</button>
+        <div className='description-section'>
+          <label className='description-label' htmlFor="Description">Recipe Details</label>
+          <textarea className='description-textarea' id="Description" ></textarea>
         </div>
-        <hr />
+        <hr className='separator' />
         <div>
-          <h3>Suggestions:</h3>
-          {prediction && <p>Predicted Dish: {prediction}</p>}
+          <h3 className='suggestions-heading'>Suggestions</h3>
+          {/* Add your suggestions content here */}
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Upload;
