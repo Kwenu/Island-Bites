@@ -10,9 +10,22 @@ import axios from 'axios';
 
 
 function ProfilePage() {
-  const [modalOpen, setModalOpen] = useState(false);
+
+  const [selectedFile, setSelectedFile] = useState(null); // State to store selected file
+
+  const [data, setData] = useState([])
+
+  const [openModel, setOpenModal] = useState(false);
 
   const [userInfo, setUserInfo] = useState(null);
+
+  useEffect (() => {
+    axios.get('http://localhost:8800/profileimagedisplay')
+    .then(res => {
+      setData(res.data[0])
+    })
+    .catch(err => console.log(err));
+  },[])
 
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -28,14 +41,49 @@ function ProfilePage() {
     fetchUserInfo();
   }, []);
 
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]); // Update selected file state
+  };
+
+
+  const handleUpload = async () => {
+    if (!selectedFile) return; // If no file selected, return
+
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+    formData.append('userId', userInfo.id); // Assuming you're sending userId along with the request
+
+    try {
+      const res = await axios.post("http://localhost:8800/editprofileimage", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log("Upload successful:", res.data);
+      // If upload is successful, you might want to update user's profilePic in state
+    } catch (err) {
+      console.error("Error uploading file:", err);
+    }
+  };
+
+      // Function to handle profile image deletion
+      const handleDeleteProfileImage = async () => {
+        try {
+            const userId = userInfo.id; // Assuming you have access to user ID
+            const res = await axios.delete(`http://localhost:8800/deleteprofileimage/${userId}`);
+            console.log("Delete profile image successful:", res.data);
+            // If deletion is successful, update user info to display default image
+            setUserInfo(prevState => ({ ...prevState, profilePic: res.data.filename }));
+        } catch (err) {
+            console.error("Error deleting profile image:", err);
+        }
+    };
+
+
+
   if (!userInfo) {
     return <div>Loading...</div>;
   }
-
-
-
-
-
 
   return (
 
@@ -45,13 +93,21 @@ function ProfilePage() {
     </div>
     <div className='images'>
       <img src='https://images.pexels.com/photos/10837800/pexels-photo-10837800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' className='cover'></img>
-      <img src= {userInfo.profilePic} alt='' className='profilePic'></img>
+      <div className="editIcon">
+          <FaEdit />
+        </div>
+        <input type='file' onChange={handleFileChange} />
+        <button onClick={handleUpload}>Upload</button>
+        <button onClick={handleDeleteProfileImage}>Delete Profile Image</button>
+
+        <img src={`http://localhost:8800/images/` + userInfo.profilePic} alt='' className='profilePic'></img>
+
     </div>
     <div className='ProfileContainer'>
       <div className='uInfo'>
         <div className='left'></div>
         <div className='centerp'>
-          <span>{userInfo.name}</span>
+          <span>{userInfo.id}:{userInfo.name}</span>
           <div className='info'>
             <div className='item'>
               <span>{userInfo.email}</span>
@@ -108,18 +164,19 @@ function ProfilePage() {
 
       <div className='bar'>
         <div className='center'>
-          <FontAwesomeIcon icon={faSignOut} />
-          <div className="App">
-            <span>Log Out</span>
-              <button
-                className="openModalBtn"
-                onClick={() => {
-                  setModalOpen(true);
-                  }}
-                >
-              </button>
-            {modalOpen && <Profile setOpenModal={setModalOpen} />}
-          </div>
+        <FontAwesomeIcon icon={faSignOut} />
+    <div className="App">
+      <span>Log Out</span>
+      <button
+        className="openModalBtn"
+        onClick={() => {
+          setOpenModal(true); // Corrected the variable name here
+        }}
+      >
+        Open Modal
+      </button>
+      {openModel && <Logout closeModal={setOpenModal} />} {/* Corrected the variable name here */}
+    </div>
         </div>
       </div>
     </div>

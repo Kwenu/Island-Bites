@@ -211,6 +211,21 @@ app.put("/recipes/:id", (req, res) => {
     });
 });
 
+app.post("/editprofileimage", upload.single("file"), (req,res) => {
+    const userId = req.body.userId; // Assuming you're sending userId along with the request
+    const filename = req.file.filename; // Retrieve the uploaded filename
+
+    // Update the user's profilePic field in the database
+    const sql = "UPDATE users SET profilePic = ? WHERE id = ?";
+    db.query(sql, [filename, userId], (err, result) => {
+        if (err) {
+            console.error("Error updating profile image:", err);
+            return res.status(500).json({ error: "Error updating profile image" });
+        }
+        return res.json({ status: "Success", filename }); // Send success response along with the filename
+    });
+});
+
 
 app.put("/editprofile/:id" ,(req, res) => {
     const sql = "UPDATE users SET `username` =?,`email` =?, `name`=?, `contactNum` =? , `country` =? WHERE id = ? ";
@@ -221,6 +236,13 @@ app.put("/editprofile/:id" ,(req, res) => {
     })
 })
 
+app.get('/profileimagedisplay' , (req, res) => {
+    const sql = "SELECT * FROM users WHERE id = ?";
+    db.query(sql, (err,result) => {
+        if(err) return res.json("Error");
+        return res.json(result);
+    })
+})
 
 app.get('/edit/:id', (req,res) =>{
     const sql = "SELECT * FROM users WHERE id = ?";
@@ -230,6 +252,23 @@ app.get('/edit/:id', (req,res) =>{
         return res.json(result);
     })
 })
+
+app.delete("/deleteprofileimage/:userId", (req, res) => {
+    const userId = req.params.userId;
+    
+    // Assuming you have a default image filename
+    const defaultImageFilename = "default_profile_pic.jpg";
+
+    // Update the user's profilePic field in the database to the default image filename
+    const sql = "UPDATE users SET profilePic = ? WHERE id = ?";
+    db.query(sql, [defaultImageFilename, userId], (err, result) => {
+        if (err) {
+            console.error("Error deleting profile image:", err);
+            return res.status(500).json({ error: "Error deleting profile image" });
+        }
+        return res.json({ status: "Success", filename: defaultImageFilename }); // Send success response along with the filename of the default image
+    });
+});
 
 
 
