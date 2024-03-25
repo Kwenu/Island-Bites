@@ -1,3 +1,4 @@
+app.post("/recipes", upload.single('file'), (req,res)=>{
 import mysql from "mysql";
 import cors from "cors";
 import jwt from "jsonwebtoken";
@@ -6,7 +7,6 @@ import cookieParser from "cookie-parser";
 import express from "express";
 import multer from "multer";
 import path from "path";
-// import nodemailer from "nodemailer";
 
 const salt = 10;
 
@@ -125,13 +125,22 @@ app.post("/recipes", (req,res)=>{
         req.body.ingredients,
         req.body.description,
         req.body.instructions,
+
+        req.file.filename,
+
         req.body.img,
+
         req.body.userId,
         req.body.createdAt,
 ];
 
     db.query(q,[values], (err,data)=>{
         if(err) return res.json(err);
+
+        return res.json("Recipe has been created successfully..");
+    });
+
+});
         return res.json("Book has been created successfully..");
     });
 
@@ -292,4 +301,5 @@ app.delete("/deleteprofileimage/:userId", (req, res) => {
 app.listen(8800, ()=>{
     console.log("Connected to backend!");
 })
+
 
