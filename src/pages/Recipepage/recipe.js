@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom';
 import MilkRice from '../../images/1.jpg'; 
+// import StringHoppers from '../../images/2.jpg';
+// import Hoppers from '../../images/3.jpg';
+// import Pittu from '../../images/4.jpg';
+// import Rotti from '../../images/5.jpg';
+// import LumpRice from '../../images/6.jpg';
+// import Koththu from '../../images/7.jpg';
+// import Kavum from '../../images/8.jpg';
+// import Kokis from '../../images/9.jpg';
 import SearchIcon from '../../images/search-icon.png'; 
 import SearchProfile from '../../images/profile.jpg';
 import ProfileImage from '../../images/profile2.jpg';
-import { FaStar } from 'react-icons/fa'; // Importing star icon
 import '../../Pages/Recipepage/recipe.css';
-import CommentBar from './commentbar';
 
-
-function Recipe() {
-  const [rating, setRating] = useState(0);
-
-  // Function to handle rating change
-  const handleRating = (newRating) => {
-    setRating(newRating);
-  };
-
+function recipe() {
   return (
     <div className="app-container">
       <div className="search-profile-container">
@@ -70,35 +68,13 @@ function Recipe() {
               <li>Grated coconut for garnish (optional)</li>
             </p>
           </div>
-          {/* Star Rating Component */}
-          <div className='star-rating'>
-            <p>Rate this recipe:</p>
-            {[...Array(5)].map((star, i) => {
-              const ratingValue = i + 1;
-              return (
-                <label key={i}>
-                  <input
-                    type="radio"
-                    name="rating"
-                    value={ratingValue}
-                    onClick={() => handleRating(ratingValue)}
-                  />
-                  <FaStar
-                    className="star"
-                    color={ratingValue <= rating ? "#ffc107" : "#e4e5e9"}
-                    size={30}
-                  />
-                </label>
-              );
-            })}
-          </div>
         </div>
         <div className='add-recipe'>
-          <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
-        </div>
+        <Link to="/add"><button className='button-recipe'>Add Recipes</button></Link>
       </div>
-      <CommentBar />
+      </div>
     </div>
-  );
+  )
 }
-export default Recipe;
+
+export default recipe
