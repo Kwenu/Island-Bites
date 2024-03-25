@@ -67,8 +67,6 @@ const Signup = () => {
             id='name' 
             name='name'
             onChange={e => setValues({...values,name: e.target.value})}/>
-        
-
         <p className='contactNum'>Contact Number</p>
         <input 
             type="number" 
