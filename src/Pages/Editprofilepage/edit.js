@@ -15,7 +15,7 @@ const Edit = () => {
 
 
 useEffect (()=>{
-        axios.get("http://localhost:8800/edit/" +id)
+        axios.get("http://localhost:8801/edit/" +id)
         .then(res =>{
             setUsername(res.data[0].username);
             setName(res.data[0].name);
@@ -32,7 +32,7 @@ useEffect (()=>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        axios.put("http://localhost:8800/editprofile/" +id,{username,name,contactNum,country,email})
+        axios.put("http://localhost:8801/editprofile/" +id,{username,name,contactNum,country,email})
         .then(res =>{
             if(res.data.updated){
                 navigate("/profile")
@@ -44,6 +44,7 @@ useEffect (()=>{
     }
 
     const handleCancel = () => {
+        alert("Editing canceled");
         navigate("/profile")
       };
 
@@ -52,7 +53,7 @@ useEffect (()=>{
             <div className="edit-container">
                 <h3 className='edit'>Edit Profile</h3>
                 <div className="edit-details">
-                <p className='username'>Username</p>
+                <p className='username'>Name</p>
                     <input
                         type="text"
                         placeholder='username'
@@ -60,7 +61,7 @@ useEffect (()=>{
                         value={username}
                         onChange={e => setUsername(e.target.value)} />
 
-                <p className='name'>Name</p>
+                <p className='name'>Username</p>
                     <input 
                         type="text" 
                         placeholder='name' 
@@ -95,12 +96,12 @@ useEffect (()=>{
                 
                 <div className="buttons">
                 <div className="cancel">
-                    <button className='Cancel' id='button' >
-                        Cancle
+                    <button className='Cancel' id='button'onClick={handleCancel} >
+                        Cancel
                     </button>
                 </div>
                 <div className="save">
-                    <button className='Save' id='button' onClick={handleCancel}>
+                    <button className='Save' id='button' >
                         Save
                     </button>
                 </div>

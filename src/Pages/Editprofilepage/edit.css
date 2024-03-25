@@ -1,108 +1,106 @@
-#container #login {
-    /* margin-top: -35px; */
-    padding: 0px 72px;
-    font-size: 35px;
+.edit-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(181, 211, 170, 0.788);
+    animation: fadeInAnimation 1s ease forwards; /* Apply fade-in animation to the body */
 }
 
-#login-details #welcome {
-    margin-top: -18px;
-    padding: 0px 72px;
+.edit {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#container #signup p {
-    margin-top: 720px;
-    margin-left: -520px;
+.edit-details {
+    margin-bottom: 20px;
 }
 
-#login-details #detail {
-    font-size: 16px;
-    margin-top: -20px;
-    padding: 0px 72px;
+.edit-details p {
+    margin-bottom: 8px;
 }
 
-#detail .email,
-#detail .password,
-#detail .firstName,
-#detail .contactNum,
-#detail .lastName {
-    margin-top: -15px;
-}
-
-#detail p {
-    padding: 5px 0px;
-}
-
-#email,
-#firstName,
-#secondName,
-#password,
-#contactNumber,
-#country,
-#lastName {
-    position: relative;
+.edit-details input[type="text"],
+.edit-details input[type="email"],
+.edit-details select {
+    width: 100%;
     padding: 10px;
-    border: 2px solid #d8d8d8;
-    border-radius: 10px; 
-    margin-bottom: 20px; 
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-/* Style placeholder text */
-#email::placeholder,
-#password::placeholder,
-#firstName::placeholder,
-#lastName::placeholder,
-#contactNum::placeholder {
-    color: #888; /* Placeholder text color */
+.edit-details input[type="text"]:focus,
+.edit-details input[type="email"]:focus,
+.edit-details select:focus {
+    outline: none;
+    border-color: #65B741;
+    box-shadow: 0 0 5px #65B741;
 }
 
-/* Style eye icon */
-.eye-icon {
+.buttons {
     display: flex;
-    align-items: center;
-    padding: 0 10px;
+    justify-content: space-between;
+
 }
 
-.password-input {
-    position: relative;
+
+.cancel,
+.save {
+    flex-basis: 10%; /* Make each button take up 48% of the container */
 }
 
-.password-input .eye-icon {
-    position: absolute;
-    top: 40%;
-    right: 8px;
-    transform: translateY(-50%);
+
+.Cancel {
+    padding: 10px 20px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.Save{
+    padding: 10px 20px;
+    background-color: #65B741;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.password-input .border-l {
-    position: absolute;
-    top: 2px;
-    right: 50px; 
-    /* height: 80%; */
-    height: calc(100% - 20px); 
-    border-left: 1px solid #d8d8d8;
+#button:hover {
+    background-color:#175f1b;
 }
 
-#login-details #remember {
-    padding: 0px 72px;
-}
+@keyframes fadeInAnimation {
+    from {
+      opacity: 0; /* Start opacity at 0 */
+    }
+    to {
+      opacity: 1; /* End opacity at 1 */
+    }
+  }
 
-#login-details #forgot {
-    padding: 0px 70px;
-}
-
-#login-details #signin {
-    padding: 20px 70px;
-}
-
-#login-details #or {
-    padding: 10px 70px;
-    margin-bottom: 10px;
-}
-
-#login-details #text {
-    padding: 0px 15px;
-}
-
-#login-details .google {
-    padding: 0px 70px;
+@media screen and (max-width: 768px) {
+    .edit-container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+    .edit-details input[type="text"],
+    .edit-details input[type="email"],
+    .edit-details select {
+        font-size: 14px; /* Reduce font size on smaller screens */
+    }
+    .buttons {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+    }
+    .cancel,
+    .save {
+        flex-basis: 100%; /* Make buttons take up full width on smaller screens */
+        margin-bottom: 10px; /* Add margin between buttons on smaller screens */
+    }
 }
