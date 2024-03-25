@@ -1,12 +1,19 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './profile.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaEdit } from 'react-icons/fa';
 import { faGear, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
+
+import './profile.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBowlFood, faHeart, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
+
 import Profile from '../../images/profilePic.jpg';
 import Logout from '../../Pages/Logoutpage/logout';
 import axios from 'axios';
+
 
 
 function ProfilePage() {
@@ -85,9 +92,13 @@ function ProfilePage() {
     return <div>Loading...</div>;
   }
 
+
+function App() {
+
   return (
 
     <div className="profile">
+
     <div className='name'>
       Edit Profile
     </div>
@@ -111,11 +122,28 @@ function ProfilePage() {
           <div className='info'>
             <div className='item'>
               <span>{userInfo.email}</span>
+
+      <div className='images'>
+        <img src='https://images.pexels.com/photos/10837800/pexels-photo-10837800.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' className='cover'></img>
+        <img src= {Profile} alt='' className='profilePic'></img>
+      </div>
+      <div className='ProfileContainer'>
+        <div className='uInfo'>
+          <div className='left'>
+          </div>
+          <div className='centerp'>
+            <span>Adrian Brewer</span>
+            <div className='info'>
+              <div className='item'>
+                <span>adrianbrewer@gmail.com</span>
+              </div>
+
             </div>
           </div>
         </div>
         <div className='right'></div>
       </div>
+
 
       <div className='bar'>
         <div className='center'>
@@ -124,9 +152,16 @@ function ProfilePage() {
             <span>
               <Link to={`/edit/${userInfo.id}`}>Edit Profile</Link>
             </span>
+
+        <div className='bar'>
+          <div className='center'>
+            <FontAwesomeIcon icon={faUser} />
+            <span>Edit Profile</span>
+
           </div>
         </div>
       </div>
+
 
       <div className='bar'>
         <div className='center'>
@@ -135,9 +170,16 @@ function ProfilePage() {
             <span>
               <Link to="/favorite">Favourites</Link>
             </span>
+
+        <div className='bar'>
+          <div className='center'>
+            <FontAwesomeIcon icon={faBowlFood} />
+            <span>Your Recipes</span>
+
           </div>
         </div>
       </div>
+
 
       <div className='bar'>
         <div className='center'>
@@ -146,6 +188,12 @@ function ProfilePage() {
             <span>
               <Link to="/myrecipe">My Recipe</Link>
             </span>
+
+        <div className='bar'>
+          <div className='center'>
+            <FontAwesomeIcon icon={faHeart} />
+            <span>Favourites</span>
+
           </div>
         </div>
       </div>
@@ -158,8 +206,15 @@ function ProfilePage() {
             <span>
               <Link to="/favorite">Settings</Link>
             </span>
+
+        <div className='bar'>
+          <div className='center'>
+            <FontAwesomeIcon icon={faSignOut} />
+            <span>Log Out</span>
+
           </div>
         </div>
+
       </div>
 
       <div className='bar'>
