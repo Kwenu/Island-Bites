@@ -1,0 +1,95 @@
+.update-container { /* Updated class name */
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #b5d3aac9;
+    animation: fadeInAnimation 1s ease forwards; /* Apply fade-in animation to the body */
+  }
+  
+.update-h2 { /* Updated class name */
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  
+  
+  .form-group-update {
+    margin-bottom: 20px;
+  }
+  
+  .form-group-update label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .update-INPUT[type="file"]{
+    display: inline-block;
+  }
+  
+  textarea,
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  .update-image-container {
+    border: 2px dashed #333;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .update-button {
+    background-color: #65B741;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-button:hover {
+    background-color: #175f1b;
+  }
+  
+  @keyframes fadeInAnimation {
+    from {
+      opacity: 0; /* Start opacity at 0 */
+    }
+    to {
+      opacity: 1; /* End opacity at 1 */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .update-container {
+      padding: 10px;
+    }
+  
+    .update-container .update-h2 {
+      font-size: 20px;
+    }
+  
+
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .update-container {
+      max-width: 1200px;
+    }
+  }

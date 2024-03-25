@@ -73,6 +73,9 @@ function Cards() {
                                     <button>
                                         <img src={Comment} alt="Comment" className="w-6 h-6" id='Comment'/>
                                     </button>
+
+                                    <Link to={`/recipe/${card.id}`} className="btn btn-primary me-2">More</Link>
+
                                 </div>
                             </div>
                         </div>
